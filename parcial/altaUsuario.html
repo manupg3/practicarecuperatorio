@@ -1,0 +1,63 @@
+
+
+<body>
+  
+
+		<form id="FormIngreso" name="formIngreso"   enctype="multipart/form-data"  >
+
+			<!-- <label for="apellido">Apellido:</label>
+			<input type="text" name="apellido" ng-model="usuario.apellido" placeholder="ingrese apellido" value="" required/>
+			<br><br><br>
+			 -->
+			 	<p>Nombre:<br>
+			<input type="text" name="text" ng-model="name" placeholder="ingrese Nombre"  required>
+			<span style="color:red" ng-show="formIngreso.text.$dirty && formIngreso.text.$invalid">
+			<span ng-show="formIngreso.text.$error.required">Nombre es requerido.</span>
+			<span ng-show="formIngreso.text.$error.email">Nombre es Invalido.</span>
+			</span>
+			</p>
+				 	<p>Apellido:<br>
+			<input type="text" name="text" ng-model="ape" placeholder="ingrese Apellido"  required>
+			<span style="color:red" ng-show="formIngreso.text.$dirty && formIngreso.text.$invalid">
+			<span ng-show="formIngreso.text.$error.required">Apellido es requerido.</span>
+			<span ng-show="formIngreso.text.$error.email">Apellido es Invalido.</span>
+			</span>
+			</p>
+
+			<p>Usuario:<br>
+			<input type="email" name="email" ng-model="email" placeholder="ingrese mail"  required>
+			<span style="color:red" ng-show="formIngreso.email.$dirty && formIngreso.email.$invalid">
+			<span ng-show="formIngreso.email.$error.required">Mail es requerido.</span>
+			<span ng-show="formIngreso.email.$error.email">Mail es Invalido.</span>
+			</span>
+			</p>
+
+			<br>
+			<p>DNI:<br>
+			<input type="number" name="dni" ng-model="dni" 
+			placeholder="ingrese dni"  class="form-control" value="" required/ >
+			<span style="color:red" ng-show="formIngreso.dni.$dirty">
+			<span ng-show="formIngreso.dni.$error.required">DNI es requerido.</span>
+			</p>
+
+
+
+
+  			<br><br><br>
+  			<label>Password:</label><br>
+  			<input type="password" ng-model="persona.password" id="password"  
+				placeholder="ingrese password"  required//>
+			<br>
+			<input type="password" ng-model="persona.copiapassword" id="copiapassword"  
+				placeholder="reingrese password"  required//>
+			
+			<br><br>
+			<a ng-disabled="FormIngreso.$invalid"  class="btn btn-primary" 
+				name="guardar" ng-click="Guardar()" >
+			<span>&nbsp;</span>Guardar
+           
+		
+		
+		</form>
+
+</body>

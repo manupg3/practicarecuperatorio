@@ -1,0 +1,34 @@
+<div class="container">
+
+		<div class="CajaInicio animated bounceInRight">
+			<h1>Listado de Usarios</h1>
+		</div>
+
+		<table class='table table-hover table-responsive' id="listaPersonas">
+									<thead>
+										<tr>
+											<th>  ID     </th>
+											<th>  DNI     </th>
+											<th>  usuario   </th>
+											<th>  borrar   </th>
+
+										</tr> 
+									</thead>
+									<tr ng-repeat="usuario in ListadoPersonas ">
+												<td>{{usuario.id}}   </td>
+										<td>{{usuario.dni}}</td>
+										<td>{{usuario.apellido}}</td>
+                                          
+
+										<td><button class='btn btn-danger' name='Borrar' ng-click="Borrar(usuario)"> 
+										  <span class='glyphicon glyphicon-remove-circle'>&nbsp;</span>Borrar</button></td>
+										
+															
+									</tr>
+
+								</table>
+								<div ng-if="resultado.length==0">
+									No hay personas con ese critero.
+								</div>
+	
+</div>

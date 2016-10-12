@@ -1,0 +1,107 @@
+-- phpMyAdmin SQL Dump
+-- version 4.5.1
+-- http://www.phpmyadmin.net
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 29-09-2016 a las 05:08:58
+-- Versión del servidor: 10.1.10-MariaDB
+-- Versión de PHP: 5.6.19
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de datos: `parcial`
+--
+
+-- --------------------------------------------------------
+
+
+
+CREATE TABLE `votacion` (
+  `id` int(11) NOT NULL,
+  `fecha` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
+  `votacion` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
+  `dni` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
+   `sexo` char COLLATE utf8_spanish2_ci NOT NULL,
+  `foto` varchar(50) COLLATE utf8_spanish2_ci 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+
+
+INSERT INTO `votacion` (`id`,`fecha`, `votacion`, `dni`,  `sexo`, `foto`) VALUES
+(1, '22-11-1985', 'Agua', '333333', 'F' ,'333333.jpg'),
+(2, '22-11-1989', 'Giratoria', '222222', 'F' ,'222222.jpg'),
+(3, '22-11-1980', 'ko', '888888', 'M' ,'888888.jpg'),
+(4, '22-11-1980', 'Crucero', '777777', 'F' ,'777777.jpg'),
+(5, '22-01-1983', 'Mercurio', '999999', 'M' ,'999999.jpg'),
+(6, '22-07-1982', 'Marrón', '555555', 'F' ,'555555.jpg'),
+(8, '22-07-1982','Miguel2','444444', 'F' ,'444444.jpg'),
+(9, '22-07-1982','natalia',  '12312312', 'F' ,'12312312.jpg'),
+(10, '22-07-1982','em','12312312', 'M' ,'12312312.jpg'),
+(11, '22-07-1982','test1', '12312312','M' , '12312312.jpg'),
+(12, '22-07-1982','test2', '222222', 'M' ,'222222.jpg'),
+(13,'22-07-1982', 'natalia2',  '12121212','F' , '12121212.jpg'),
+(14, '22-07-1982','natalia3', '09909', 'F' , '09909.jpg'),
+(15,'22-07-1982', 'waits',  '45678', 'F' ,'45678.jpg'),
+(16, '22-07-1982','guachin',  '343434', 'M' , '343434.jpg'),
+(17, '22-07-1982','fabi',  '22233333',  'F' ,'22233333.jpg');
+
+
+
+--
+-- Indices de la tabla `votacion`
+--
+ALTER TABLE `votacion`
+  ADD PRIMARY KEY (`id`);
+
+
+ALTER TABLE `votacion` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27
+
+
+DELIMITER $$
+--
+-- Procedimientos
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `BorrarVotacion` (IN `idp` INT(18))  NO SQL
+delete from Votacion WHERE id=idp$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertarVotacion` (IN `pfecha` VARCHAR(50), IN `pvotacion` VARCHAR(50), 
+IN `pdni` VARCHAR(50), IN  `psexo` CHAR, IN `pfoto` VARCHAR(50) )  NO SQL
+INSERT into Votacion (fecha,votacion,dni,sexo,foto)
+values
+(pfecha,pvotacion,pdni,psexo,pfoto)$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertarVotacionSinFoto` (IN `pfecha` VARCHAR(50), IN `pvotacion` VARCHAR(50), IN `pdni` VARCHAR(50), IN  `psexo` CHAR)  NO SQL
+INSERT into Votacion (nombre,apellido,dni)
+values
+(pfecha,pvotacion,pdni,psexo)$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ModificarVotacion` 
+(IN `pid` INT, IN `pfecha` VARCHAR(50), IN `pvotacion` VARCHAR(50), IN `pfoto` VARCHAR(50))  NO SQL
+update Votacion 
+        set fecha=pfecha,
+        votacion=pvotacion,
+        foto=pfoto
+        WHERE id=pid$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ModificarVotacionSinFoto`
+ (IN `pid` INT, IN `pfecha` VARCHAR(50), IN `pvotacion` VARCHAR(50))  NO SQL
+update Votacion 
+        set fecha=pfecha,
+        votacion=pvotacion       
+        WHERE id=pid$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `TraerTodasLasVotaciones` ()  NO SQL
+select * from Votacion$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `TraerUnaVotacion` (IN `idp` INT(18))  NO SQL
+select * from Votacion where id =idp$$
+
+DELIMITER ;

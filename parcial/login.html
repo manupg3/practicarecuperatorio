@@ -1,0 +1,42 @@
+<body>
+  <div>
+
+    <div align="center">      
+        <h2> Inicia sesión para acceder</h2>  
+        
+          <label for="correo">Correo</label>
+          <input type="text" name="correo" ng-model="usuario.correo" class="form-control" >
+          
+         <!--  <br><br>
+          <label for="dni">DNI</label>
+          <input type="text" name="dni" ng-model="usuario.dni" class="form-control" >
+          <br><br> -->
+
+
+         <!--  <br><br> -->
+
+
+          <label for="clave">Clave</label>
+          <input type="password" name="clave" ng-model="usuario.clave" class="form-control" >
+          <br><br>
+
+          <a class="btn btn-primary" ng-click="iniciarSesion()" >
+            <span>&nbsp;</span>iniciarSesion
+          </a>     
+          
+          <a class="btn btn-primary" ng-click="irARegistro()" >
+            <span>&nbsp;</span>Registrarse
+          </a>     
+
+
+          <input type="hidden" ng-model="logueo">
+
+          
+
+          <div ng-hide="logueo">
+              <h3>Error al loguearse. Verfique usuario y clave.</h3>            
+          </div>
+          
+     </div>
+  </div>
+</body>

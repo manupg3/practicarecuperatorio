@@ -1,0 +1,34 @@
+<div class="container">
+		<div class="CajaInicio animated bounceInRight">
+			<h1> Alta Votacion </h1>
+
+			<form id="FormIngreso" enctype="multipart/form-data" >
+
+				<input type="text" name="apellido" ng-model="votacion.votacion" placeholder="ingrese votacion" value="" />
+				<span id="lblApellido" style="display:none;color:#FF0000;width:1%;float:right;font-size:80">
+				</span>
+
+				<input type="text" name="nombre" ng-model="votacion.fecha" placeholder="ingrese fecha" value="" /> 
+				<span id="lblNombre" style="display:none;color:#FF0000;width:1%;float:right;font-size:80">
+				 </span>
+
+				<input type="text" name="dni" ng-model="votacion.dni" placeholder="ingrese dni" value=""/> 
+				<span id="lblDni" style="display:none;color:#FF0000;width:1%;float:right;font-size:80"></span>
+			
+				<input type="text" name="sexo" ng-model="votacion.sexo" placeholder="ingrese sexo" value=""/> 
+				<span id="lblSexo" style="display:none;color:#FF0000;width:1%;float:right;font-size:80"></span>
+			
+			
+
+				<a class="btn btn-info " name="guardar" ng-click="Guardar()" >
+					<span class="glyphicon glyphicon-save">&nbsp;</span>Guardar</a>
+
+				<input type="hidden" value="" id="idParaModificar" name="agregar" ng-model="votacion.id"/>
+				<input type="hidden" value="" id="hdnAgregar" name="agregar" />
+				</div>
+
+			</form>
+		
+
+		</div>
+</div>
